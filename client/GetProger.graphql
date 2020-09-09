@@ -1,0 +1,12 @@
+query GetProger($id: ID!) {
+	getProger(id: $id) {
+		id
+		title
+		description
+		author {
+			id
+			firstName
+			lastName
+		}
+	}
+}

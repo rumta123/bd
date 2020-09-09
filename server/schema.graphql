@@ -10,6 +10,24 @@ input BookInput {
 	description: String!
 }
 
+type Proger {
+	id: ID!
+	author:AuthorP
+	description: String!
+}
+
+input ProgerInput {
+	title: String!
+	description: String!
+}
+
+type AuthorP {
+	id: ID!
+	firstName: String!
+	lastName: String!
+}
+
+
 type Author {
 	id: ID!
 	firstName: String!
@@ -19,8 +37,17 @@ type Author {
 type Query {
 	getAllBooks: [Book]!
 	getBook(id: ID!): Book!
+	getAllProger: [Proger]!
+	getProger(id: ID!): Proger!
 }
 
 type Mutation {
 	addBook(book: BookInput!): Boolean!
+	addProger(proger: ProgerInput!): Boolean!
 }
+
+
+
+
+
+

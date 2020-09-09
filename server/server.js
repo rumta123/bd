@@ -36,6 +36,35 @@ const allBooks = [
 	}
 ];
 
+
+const allProger = [
+	{
+		id: '1',
+		title: 'Proger 123',
+		description: '123',
+		author: {
+			id: '1',
+			firstName: 'EA',
+			lastName: 'Rumyantsev'
+		}
+	},
+	{
+		id: '2',
+		title: 'Awesome Proger',
+		description: '123eeeeeeeee',
+		author: {
+			id: '1',
+			firstName: 'Alex',
+			lastName: 'Kislov'
+		}
+	}
+];
+
+
+
+
+
+
 const root = {
 	getAllBooks: () => {
 		return allBooks;
@@ -55,8 +84,36 @@ const root = {
 		});
 
 		return true;
-	}
+	},
+
+	getAllProger: () => {
+		return allProger;
+	},
+	getProger: params => {
+		return allProger.find(({ id }) => params.id === id);
+	},
+	addProger: params => {
+		allProger.push({
+			id: allProger.length + 1,
+			...params.proger,
+			author: {
+				id: '1',
+				firstName: 'Alex',
+				lastName: 'Kislov'
+			}
+		});
+
+		return true;
+	},
+	
+
 };
+
+
+const root1 = {
+	
+};
+
 
 // ------------------------------------------------------
 // ------------------------------------------------------
@@ -71,7 +128,8 @@ app.use(
 	'/graphql',
 	graphqlHTTP({
 		schema: schema,
-		rootValue: root,
+		rootValue: root ,
+		
 		graphiql: true
 	})
 );

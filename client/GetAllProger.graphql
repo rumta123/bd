@@ -1,0 +1,12 @@
+query GetAllProger {
+	GetAllProger {
+		id
+		title
+		description
+		author {
+			id
+			firstName
+			lastName
+		}
+	}
+}
